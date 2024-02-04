@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 
+body, .root, html {
+  height: 100%;
+}
+
 @font-face {
   font-family: Open Sans;
   src: url(./assets/fonts/OpenSans/static/OpenSans-Regular.ttf);
@@ -43,6 +47,12 @@ img {
  
 @layer base {
   :root {
+
+    --color-primary-green: #468792;
+    --color-primary-yellow: #F2AC5E;
+    --color-primary-red: #E96363;
+    --color-primary-blue: #285D77;
+
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
 

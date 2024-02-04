@@ -9,7 +9,7 @@ const AppRouter = () => {
     <Routes>
       <Route index element={<Home />} />
       <Route path={"/about"} element={<About />} />
-      <Route path={"/groups"} element={<Groups />} />
+      <Route path={"/groups/:group"} element={<Groups />} />
       <Route path={"/contact"} element={<Contact />} />
     </Routes>
   );
