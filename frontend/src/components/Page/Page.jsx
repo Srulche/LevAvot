@@ -9,10 +9,10 @@ const PageStyled = styled.div`
     height: 100%;
 `
 
-const Page = ({children}) => {
+const Page = ({ children, className }) => {
   return (
-    <PageStyled>
-        {children}
+    <PageStyled className={className}>
+      {children}
     </PageStyled>
   )
 }

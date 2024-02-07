@@ -10,15 +10,13 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { DropdownMenuSubTrigger } from "@radix-ui/react-dropdown-menu";
-import { PhoneRounded, WhatshotRounded } from "@mui/icons-material";
 import ContactLinks from "../ContactLinks/ContactLinks";
 
 const NavLinkStyled = styled(Link)`
   color: black;
   transition: color 0.5s linear;
   &:hover {
-    color: var(--color-primary-green);
+    color: var(--color-primary-red) !important;
   }
 `;
 const NavStyled = styled.nav`
@@ -40,6 +38,11 @@ const NavStyled = styled.nav`
       height: 75px;
     }
   }
+  .nav-group-item {
+    &:hover {
+      color: var(--color-primary-red) !important;
+    }
+  }
 
   .links {
     display: flex;
@@ -53,48 +56,48 @@ const NavStyled = styled.nav`
 
 const Navbar = () => {
 
-  const {pathname: pathName} = useLocation()
+  const { pathname: pathName } = useLocation()
   return (
     <NavStyled>
       <div className="right">
-      <div className="logo">
-        <img src={levAvotLogo} />
+        <div className="logo">
+          <img src={levAvotLogo} />
+        </div>
+        <div className="links">
+          <NavLinkStyled className={pathName === '/' ? "selected" : ""} to="/"> בית </NavLinkStyled>
+          <NavLinkStyled className={pathName === '/about' ? "selected" : ""} to="/about"> אודות </NavLinkStyled>
+          <DropdownMenu dir={'rtl'}>
+            <DropdownMenuTrigger className="nav-group-item">קבוצות ומפגשים</DropdownMenuTrigger>
+            <DropdownMenuContent className="mr-[180px]">
+              <NavLinkStyled className={pathName === '/groups/a' ? "selected" : ""} to="/groups/a">
+                <DropdownMenuItem >
+                  מפגשי תמיכה שבועיים
+                </DropdownMenuItem>
+              </NavLinkStyled>
+
+              <NavLinkStyled className={pathName === '/groups/b' ? "selected" : ""} to="/groups/b">
+                <DropdownMenuItem >
+                  ארגון שבתות וסופ"ש
+                </DropdownMenuItem>
+              </NavLinkStyled>
+              <NavLinkStyled className={pathName === '/groups/c' ? "selected" : ""} to="/groups/c">
+                <DropdownMenuItem>
+                  תיאום עם אנשי מקצוע ,עו"ד, מטפל רגשי ועוד...
+                </DropdownMenuItem>
+              </NavLinkStyled>
+              <NavLinkStyled className={pathName === '/groups/d' ? "selected" : ""} to="/groups/d">
+                <DropdownMenuItem >
+                  אירועים עתידים
+                </DropdownMenuItem>
+              </NavLinkStyled>
+            </DropdownMenuContent>
+          </DropdownMenu>
+          <NavLinkStyled className={pathName === '/contact' ? "selected" : ""} to="/contact"> צור קשר </NavLinkStyled>
+        </div>
       </div>
-      <div className="links">
-        <NavLinkStyled className={pathName === '/' ? "selected" : ""} to="/"> בית </NavLinkStyled>
-        <NavLinkStyled className={pathName === '/about' ? "selected" : ""} to="/about"> אודות </NavLinkStyled>
-      <DropdownMenu>
-      <DropdownMenuTrigger>קבוצות ומפגשים</DropdownMenuTrigger>
-        <DropdownMenuContent>
-          <NavLinkStyled className={pathName === '/groups/a' ? "selected" : ""} to="/groups/a">
-            <DropdownMenuItem>
-                Group A
-            </DropdownMenuItem>
-          </NavLinkStyled>
-          
-          <NavLinkStyled className={pathName === '/groups/b' ? "selected" : ""} to="/groups/b">
-            <DropdownMenuItem>
-                Group B
-            </DropdownMenuItem>
-          </NavLinkStyled>
-          <NavLinkStyled className={pathName === '/groups/c' ? "selected" : ""} to="/groups/c">
-            <DropdownMenuItem>
-                Group C
-            </DropdownMenuItem>
-          </NavLinkStyled>
-          <NavLinkStyled className={pathName === '/groups/d' ? "selected" : ""} to="/groups/d">
-            <DropdownMenuItem>
-                Group D
-            </DropdownMenuItem>
-          </NavLinkStyled>
-        </DropdownMenuContent>
-    </DropdownMenu>
-        <NavLinkStyled className={pathName === '/contact' ? "selected" : ""}  to="/contact"> צור קשר </NavLinkStyled>
-      </div>
-      </div>
-     
+
       <div className="left">
-       <ContactLinks/>
+        <ContactLinks />
       </div>
 
     </NavStyled>
@@ -102,3 +105,7 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+
+
+

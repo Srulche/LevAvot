@@ -1,7 +1,7 @@
 import ContactInfo from "@/components/ContactInfo/ContactInfo";
 import Page from "@/components/Page/Page";
 import { Button } from "@/components/ui/button";
-import { links, openLink } from "@/constants";
+import {  openLink } from "@/constants";
 import React from "react";
 import logo from '@/assets/Lev-Avot-Logo.jpg'
 const Contact = () => {

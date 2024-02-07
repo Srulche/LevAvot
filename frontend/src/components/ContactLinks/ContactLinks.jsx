@@ -1,6 +1,6 @@
 
 
-import { links, openLink } from '@/constants'
+import {  openLink } from '@/constants'
 import { PhoneRounded, WhatsApp } from '@mui/icons-material'
 import React from 'react'
 
